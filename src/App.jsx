@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import Header from "./components/Header";
+import Middle from "./components/Middle";
 function App() {
   return (
     <>
       <Container>
         <Header />
+        <Middle />
       </Container>
     </>
   );
