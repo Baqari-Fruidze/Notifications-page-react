@@ -16,6 +16,7 @@ const HeaderCon = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2.4rem;
   & p {
     color: var(--4---Dark-Grey-Blue, #5e6778);
     text-align: right;
