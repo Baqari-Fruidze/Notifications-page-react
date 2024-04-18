@@ -18,6 +18,8 @@ function App() {
             post={item.post}
             time={item.time}
             isRead={item.isRead}
+            groupName={item.groupName}
+            text={item.text}
           />
         ))}
       </Container>
@@ -30,4 +32,7 @@ export default App;
 const Container = styled.div`
   padding: 2.4rem 1.6rem 4.5rem;
   background: var(--9---White, #fff);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;

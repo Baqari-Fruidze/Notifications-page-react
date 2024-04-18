@@ -9,15 +9,19 @@ export default function Middle({
   post,
   time,
   isRead,
+  groupName,
+  text,
 }) {
   return (
     <Persons>
       <img src={profilePic} alt="" />
       <div>
-        <span>{username}</span>
-        <p>{action}</p>
+        <span className="person-username">{username}</span>
+        <p className="person-action">{action}</p>
+        <span className="person-groupName">{groupName}</span>
         <p className="person-Post">{post}</p>
         <p className="persons-Time">{time}</p>
+        {text ? <p className="person-text">{text}</p> : null}
       </div>
     </Persons>
   );
@@ -29,8 +33,26 @@ const Persons = styled.div`
   padding: 1.6rem;
   display: flex;
   gap: 1.3rem;
-  .person-post {
+  & .person-username {
+    color: var(--3---Very-Dark-Grey-Blue, #1c202b);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+  & .person-action {
     color: var(--4---Dark-Grey-Blue, #5e6778);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: inline;
+    margin-left: 0.6rem;
+  }
+  & .person-groupName {
+    color: var(--1---Blue, #0a327b);
     font-family: "Plus Jakarta Sans";
     font-size: 14px;
     font-style: normal;
@@ -38,7 +60,20 @@ const Persons = styled.div`
     line-height: normal;
     margin-left: 0.6rem;
   }
-  .persons-Time {
+
+  & img {
+    width: 3.9rem;
+    height: 3.9rem;
+  }
+  & .person-Post {
+    color: var(--4---Dark-Grey-Blue, #5e6778);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  & .persons-Time {
     color: var(--5---Grey-Blue, #939cad);
     font-family: "Plus Jakarta Sans";
     font-size: 14px;
@@ -46,26 +81,16 @@ const Persons = styled.div`
     font-weight: 500;
     line-height: normal;
   }
-  & img {
-    width: 13%;
-  }
-  & span {
-    color: var(--3---Very-Dark-Grey-Blue, #1c202b);
-    font-family: "Plus Jakarta Sans";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    color: #1c202b;
-    margin-right: 0.6rem;
-  }
-  & p:last-child {
-    display: inline;
+
+  & .person-text {
     color: var(--4---Dark-Grey-Blue, #5e6778);
     font-family: "Plus Jakarta Sans";
     font-size: 14px;
+    font-style: normal;
     font-weight: 500;
-    color: #5e6778;
-    background-color: red;
+    line-height: normal;
+    padding: 1.6rem;
+    border: 1px solid grey;
+    margin-top: 1.2rem;
   }
 `;
