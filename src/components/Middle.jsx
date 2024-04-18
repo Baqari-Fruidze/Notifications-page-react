@@ -12,8 +12,21 @@ export default function Middle({
   groupName,
   text,
 }) {
+  console.log(id);
+  async function foo(id) {
+    console.log("fgf" + id);
+    const response = await fetch(`http://localhost:3000/people/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        isRead: true,
+      }),
+    });
+  }
   return (
-    <Persons>
+    <Persons onClick={foo} $isRead={isRead}>
       <img src={profilePic} alt="" />
       <div>
         <span className="person-username">{username}</span>
@@ -29,7 +42,8 @@ export default function Middle({
 
 const Persons = styled.div`
   border-radius: 8px;
-  background: var(--8---Snow, #f7fafd);
+  background: ${(props) =>
+    props.$isRead ? `var(--9---White, #FFF)` : `var(--8---Snow, #F7FAFD)`};
   padding: 1.6rem;
   display: flex;
   gap: 1.3rem;

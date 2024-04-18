@@ -4,24 +4,27 @@ import Middle from "./components/Middle";
 import data from "./data.json";
 
 function App() {
-  console.log(data);
+  console.log(data.people);
+
   return (
     <>
       <Container>
         <Header />
-        {data.map((item) => (
-          <Middle
-            id={item.id}
-            username={item.username}
-            profilePic={item.profilePic}
-            action={item.action}
-            post={item.post}
-            time={item.time}
-            isRead={item.isRead}
-            groupName={item.groupName}
-            text={item.text}
-          />
-        ))}
+        {data.people.map((item) => {
+          return (
+            <Middle
+              id={item.id}
+              username={item.username}
+              profilePic={item.profilePic}
+              action={item.action}
+              post={item.post}
+              time={item.time}
+              isRead={item.isRead}
+              groupName={item.groupName}
+              text={item.text}
+            />
+          );
+        })}
       </Container>
     </>
   );
