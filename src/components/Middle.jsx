@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import React from "react";
+import data from "../data.json";
+import { useState } from "react";
 
 export default function Middle({
   id,
@@ -11,19 +13,18 @@ export default function Middle({
   isRead,
   groupName,
   text,
+  info,
+  setInfo,
 }) {
-  console.log(id);
-  async function foo(id) {
-    console.log("fgf" + id);
-    const response = await fetch(`http://localhost:3000/people/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        isRead: true,
-      }),
+  function foo() {
+    let mapped = info.map((item, index) => {
+      if (id === index + 1) {
+        item.isRead = !item.isRead;
+      }
+      return item;
     });
+    setInfo(mapped);
+    console.log(info);
   }
   return (
     <Persons onClick={foo} $isRead={isRead}>

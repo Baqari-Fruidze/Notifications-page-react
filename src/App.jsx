@@ -2,15 +2,15 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import Middle from "./components/Middle";
 import data from "./data.json";
+import { useState } from "react";
 
 function App() {
-  console.log(data.people);
-
+  const [info, setInfo] = useState(data);
   return (
     <>
       <Container>
         <Header />
-        {data.people.map((item) => {
+        {info.map((item) => {
           return (
             <Middle
               id={item.id}
@@ -22,6 +22,8 @@ function App() {
               isRead={item.isRead}
               groupName={item.groupName}
               text={item.text}
+              info={info}
+              setInfo={setInfo}
             />
           );
         })}
