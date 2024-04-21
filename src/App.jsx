@@ -13,6 +13,7 @@ function App() {
         {info.map((item) => {
           return (
             <Middle
+              userPicture={item.userPicture}
               id={item.id}
               username={item.username}
               profilePic={item.profilePic}
@@ -40,4 +41,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: 100vh;
+  justify-content: center;
+  max-width: 60rem;
+  margin: 0 auto;
 `;

@@ -15,6 +15,7 @@ export default function Middle({
   text,
   info,
   setInfo,
+  userPicture,
 }) {
   function foo() {
     let mapped = info.map((item, index) => {
@@ -24,7 +25,6 @@ export default function Middle({
       return item;
     });
     setInfo(mapped);
-    console.log(info);
   }
   return (
     <Persons onClick={foo} $isRead={isRead}>
@@ -36,6 +36,7 @@ export default function Middle({
         <p className="person-Post">{post}</p>
         <p className="persons-Time">{time}</p>
         {text ? <p className="person-text">{text}</p> : null}
+        {/* <img src={userPicture} alt="" /> */}
       </div>
     </Persons>
   );
@@ -56,6 +57,9 @@ const Persons = styled.div`
     font-weight: 800;
     line-height: normal;
   }
+  & .person-username:hover {
+    cursor: pointer;
+  }
   & .person-action {
     color: var(--4---Dark-Grey-Blue, #5e6778);
     font-family: "Plus Jakarta Sans";
@@ -66,6 +70,9 @@ const Persons = styled.div`
     display: inline;
     margin-left: 0.6rem;
   }
+  & .person-action:hover {
+    cursor: pointer;
+  }
   & .person-groupName {
     color: var(--1---Blue, #0a327b);
     font-family: "Plus Jakarta Sans";
@@ -74,6 +81,9 @@ const Persons = styled.div`
     font-weight: 700;
     line-height: normal;
     margin-left: 0.6rem;
+  }
+  & .person-groupName:hover {
+    cursor: pointer;
   }
 
   & img {
@@ -88,6 +98,9 @@ const Persons = styled.div`
     font-weight: 700;
     line-height: normal;
   }
+  & .person-Post:hover {
+    cursor: pointer;
+  }
   & .persons-Time {
     color: var(--5---Grey-Blue, #939cad);
     font-family: "Plus Jakarta Sans";
@@ -95,6 +108,9 @@ const Persons = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+  }
+  & .persons-Time:hover {
+    cursor: pointer;
   }
 
   & .person-text {
@@ -107,5 +123,8 @@ const Persons = styled.div`
     padding: 1.6rem;
     border: 1px solid grey;
     margin-top: 1.2rem;
+  }
+  & .person-text:hover {
+    cursor: pointer;
   }
 `;
