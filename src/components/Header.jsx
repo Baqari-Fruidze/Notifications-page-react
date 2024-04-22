@@ -3,20 +3,20 @@ import React from "react";
 import { useState } from "react";
 
 export default function Header({ info, setInfo }) {
-  // let count;
+  const count = info.reduce((acc, item) => (!item.isRead ? acc + 1 : acc), 0);
   // info.forEach((element) => {
   //   element.isRead === true ? count++ : {};
   //   console.log(element.isRead);
   // });
-  const [count, setCount] = useState(0);
-  info.forEach((element) => {
-    element.isRead === true ? setCount(setCount + 1) : {};
-  });
+  // const [count, setCount] = useState(0);
+  // info.forEach((element) => {
+  //   element.isRead === true ? setCount(setCount + 1) : {};
+  // });
   return (
     <HeaderCon>
       <div>
         <p>Notifications</p>
-        <div>3{count}</div>
+        <div>{count}</div>
       </div>
       <p>Mark all as read</p>
     </HeaderCon>

@@ -20,7 +20,7 @@ export default function Middle({
   function foo() {
     let mapped = info.map((item, index) => {
       if (id === index + 1) {
-        item.isRead = !item.isRead;
+        item.isRead = true;
       }
       return item;
     });
@@ -32,9 +32,9 @@ export default function Middle({
       <img src={profilePic} alt="" />
       <div>
         <span className="person-username">{username}</span>
-        <p className="person-action">{action}</p>
+        <span className="person-action">{action}</span>
         <span className="person-groupName">{groupName}</span>
-        <p className="person-Post">{post}</p>
+        <span className="person-Post">{post}</span>
         {!isRead ? <Rounded></Rounded> : null}
         <p className="persons-Time">{time}</p>
         {text ? <p className="person-text">{text}</p> : null}
