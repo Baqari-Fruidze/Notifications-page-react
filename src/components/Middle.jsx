@@ -26,6 +26,7 @@ export default function Middle({
     });
     setInfo(mapped);
   }
+  console.log(userPicture);
   return (
     <Persons onClick={foo} $isRead={isRead}>
       <img src={profilePic} alt="" />
@@ -34,14 +35,31 @@ export default function Middle({
         <p className="person-action">{action}</p>
         <span className="person-groupName">{groupName}</span>
         <p className="person-Post">{post}</p>
+        {!isRead ? <Rounded></Rounded> : null}
         <p className="persons-Time">{time}</p>
         {text ? <p className="person-text">{text}</p> : null}
-        {/* <img src={userPicture} alt="" /> */}
+        {userPicture ? <img src={userPicture} alt="" /> : null}
       </div>
     </Persons>
   );
 }
 
+const InsideDiv = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: row;
+`;
+
+const Rounded = styled.div`
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--2---Red, #f65552);
+  display: inline-block;
+  margin-left: 0.8rem;
+  border-radius: 50%;
+`;
 const Persons = styled.div`
   border-radius: 8px;
   background: ${(props) =>
@@ -97,6 +115,7 @@ const Persons = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    display: inline;
   }
   & .person-Post:hover {
     cursor: pointer;
