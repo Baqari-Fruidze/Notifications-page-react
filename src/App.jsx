@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Container>
-        <Header />
+        <Header info={info} setInfo={setInfo} />
         {info.map((item) => {
           return (
             <Middle
