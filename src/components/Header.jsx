@@ -5,9 +5,10 @@ import { useState } from "react";
 export default function Header({ info, setInfo, isRead }) {
   const count = info.reduce((acc, item) => (!item.isRead ? acc + 1 : acc), 0);
   function foo() {
-    let mapped = info.map((item) => (item.isRead = true));
-    setInfo((prev) => [...prev, (prev.isRead = true)]);
-    console.log(info);
+    let mapped = info.map((item) => {
+      return { ...item, isRead: true };
+    });
+    setInfo(mapped);
   }
   return (
     <HeaderCon>
