@@ -41,7 +41,7 @@
     "action": " commented on your picture",
     "userPicture": "/images/image-chess.webp",
     "time": "1 week ago",
-    "isRead": false
+    "isRead": true
   },
   {
     "id": 6,

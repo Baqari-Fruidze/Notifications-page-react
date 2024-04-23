@@ -7,29 +7,27 @@ import { useState } from "react";
 function App() {
   const [info, setInfo] = useState(data);
   return (
-    <>
-      <Container>
-        <Header info={info} setInfo={setInfo} />
-        {info.map((item) => {
-          return (
-            <Middle
-              userPicture={item.userPicture}
-              id={item.id}
-              username={item.username}
-              profilePic={item.profilePic}
-              action={item.action}
-              post={item.post}
-              time={item.time}
-              isRead={item.isRead}
-              groupName={item.groupName}
-              text={item.text}
-              info={info}
-              setInfo={setInfo}
-            />
-          );
-        })}
-      </Container>
-    </>
+    <Container>
+      <Header info={info} setInfo={setInfo} isRead={info.isRead} />
+      {info.map((item) => {
+        return (
+          <Middle
+            userPicture={item.userPicture}
+            id={item.id}
+            username={item.username}
+            profilePic={item.profilePic}
+            action={item.action}
+            post={item.post}
+            time={item.time}
+            isRead={item.isRead}
+            groupName={item.groupName}
+            text={item.text}
+            info={info}
+            setInfo={setInfo}
+          />
+        );
+      })}
+    </Container>
   );
 }
 
@@ -41,8 +39,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 100vh;
   justify-content: center;
-  max-width: 60rem;
-  margin: 0 auto;
+  max-width: 73rem;
 `;

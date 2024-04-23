@@ -2,23 +2,22 @@ import styled from "styled-components";
 import React from "react";
 import { useState } from "react";
 
-export default function Header({ info, setInfo }) {
+export default function Header({ info, setInfo, isRead }) {
   const count = info.reduce((acc, item) => (!item.isRead ? acc + 1 : acc), 0);
-  // info.forEach((element) => {
-  //   element.isRead === true ? count++ : {};
-  //   console.log(element.isRead);
-  // });
-  // const [count, setCount] = useState(0);
-  // info.forEach((element) => {
-  //   element.isRead === true ? setCount(setCount + 1) : {};
-  // });
+  function foo() {
+    let mapped = info.map((item) => (item.isRead = true));
+    setInfo((prev) => [...prev, (prev.isRead = true)]);
+    console.log(info);
+  }
   return (
     <HeaderCon>
       <div>
         <p>Notifications</p>
         <div>{count}</div>
       </div>
-      <p>Mark all as read</p>
+      <p onClick={foo} isRead={isRead}>
+        Mark all as read
+      </p>
     </HeaderCon>
   );
 }

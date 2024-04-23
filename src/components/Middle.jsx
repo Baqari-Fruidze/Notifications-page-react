@@ -29,17 +29,21 @@ export default function Middle({
   console.log(userPicture);
   return (
     <Persons onClick={foo} $isRead={isRead}>
-      <img src={profilePic} alt="" />
-      <div>
-        <span className="person-username">{username}</span>
-        <span className="person-action">{action}</span>
-        <span className="person-groupName">{groupName}</span>
-        <span className="person-Post">{post}</span>
-        {!isRead ? <Rounded></Rounded> : null}
-        <p className="persons-Time">{time}</p>
-        {text ? <p className="person-text">{text}</p> : null}
-        {userPicture ? <img src={userPicture} alt="" /> : null}
+      <div style={{ display: "flex", gap: "1.6rem" }}>
+        <img src={profilePic} alt="" />
+        <div>
+          <span className="person-username">{username}</span>
+          <span className="person-action">{action}</span>
+
+          <span className="person-groupName">{groupName}</span>
+          <span className="person-Post">{post}</span>
+          {!isRead ? <Rounded></Rounded> : null}
+          <p className="persons-Time">{time}</p>
+          {text ? <p className="person-text">{text}</p> : null}
+        </div>
       </div>
+
+      {userPicture ? <img src={userPicture} alt="" /> : null}
     </Persons>
   );
 }
@@ -67,6 +71,7 @@ const Persons = styled.div`
   padding: 1.6rem;
   display: flex;
   gap: 1.3rem;
+  justify-content: space-between;
   & .person-username {
     color: var(--3---Very-Dark-Grey-Blue, #1c202b);
     font-family: "Plus Jakarta Sans";
@@ -145,5 +150,15 @@ const Persons = styled.div`
   }
   & .person-text:hover {
     cursor: pointer;
+  }
+  @media (min-width: 90rem) {
+    .person-username,
+    .person-action,
+    .person-groupName,
+    .person-Post,
+    .persons-Time,
+    .person-text {
+      font-size: 16px;
+    }
   }
 `;
